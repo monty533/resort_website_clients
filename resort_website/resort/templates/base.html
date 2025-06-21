@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Resort In The Heart of New Delhi</title>
+    <style>
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            margin: 0 25px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero img {
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+        }
+
+
+        .brown-section {
+            background-color: #9b734b;
+            color: #ffffff;
+            padding: 10px 40px 25px 40px;
+            text-align: center;
+        }
+
+        .brown-section h3 {
+            font-size: 35px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .brown-section p {
+            font-size: 17px;
+            max-width: 1000px;
+            margin: 20px auto;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .lined-heading-wrapper {
+            display: flex;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto 0 auto;
+        }
+
+        .lined-heading {
+            font-size: 35px;
+            font-weight: bold;
+            color: bisque;
+            white-space: nowrap;
+            margin: 30px 10px;
+            flex-shrink: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .lined-heading-restaurant {
+            font-size: 35px;
+            font-weight: bold;
+            color: #9b734b;
+            white-space: nowrap;
+            margin: 70px 10px;
+            flex-shrink: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .lined-heading-wrapper::before,
+        .lined-heading-wrapper::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: bisque;
+        }
+
+
+        .facility-intro {
+            padding: 0 40px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .facility-intro h3 {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            color: #9b734b;
+        }
+
+        .facility-intro p {
+            max-width: 1000px;
+            margin: 0 auto 30px;
+            font-size: 17px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .facility-section {
+            background-color: #9b734b;
+            color: #ffffff;
+            padding: 40px 40px 25px 40px;
+            text-align: center;
+        }
+
+        .facility-section ul {
+            list-style-type: disc;
+            padding-left: 0;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .facility-section ul li {
+            margin-bottom: 15px;
+        }
+
+        .subscribe-section {
+            text-align: center;
+            padding: 10px 30px;
+            background: #f4f4f4;
+
+        }
+
+        .subscribe-section h4 {
+            font-size: 35px;
+            margin-bottom: 15px;
+            color: #9b734b;
+            /* background-color: #9b734b; */
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .subscribe-section input[type="text"] {
+            padding: 14px;
+            width: 340px;
+            font-size: 18px;
+        }
+
+        .subscribe-section button {
+            padding: 14px 28px;
+            background: #a97b50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .contact-form {
+            text-align: center;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 700px;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+        .contact-form h4 {
+            color: #9b734b;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            /* font-size: 28px; */
+            font-size: 35px;
+            margin-bottom: 30px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 18px;
+            margin: 15px 0;
+            font-size: 18px;
+            box-sizing: border-box;
+        }
+
+        .recaptcha-notice {
+            font-size: 16px;
+            color: #aaa;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .recaptcha-notice a {
+            color: #aaa;
+            text-decoration: underline;
+        }
+
+        .contact-form button {
+            background: #a97b50;
+            color: white;
+            padding: 16px 32px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        footer {
+            background: #fff;
+            text-align: center;
+            padding: 40px;
+            font-size: 16px;
+            color: #777;
+            border-top: 2px solid #ccc;
+        }
+
+        footer a {
+            color: #777;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        footer p {
+            font-weight: bold;
+        }
+
+        .room-section {
+            padding: 40px 40px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .room-section h3 {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            color: #9b734b;
+        }
+
+        .room-section p {
+            font-size: 17px;
+            max-width: 1000px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .room-type {
+            max-width: 1000px;
+            margin: 40px auto;
+            text-align: left;
+        }
+
+        .room-type h4 {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: #9b734b;
+
+        }
+
+        .room-type p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .book-btn-room {
+            background-color: #a97b50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+
+        .book-btn {
+            background-color: #a97b50;
+            color: white;
+            padding: 16px 32px;
+            font-size: 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .restaurant-section {
+            background-color: #a67c52;
+            color: #ffffff;
+            padding: 40px 10px 20px 10px;
+            text-align: center;
+        }
+
+        .restaurant-section p {
+            font-size: 17px;
+            max-width: 1000px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+
+        .banquet-section {
+            background-color: #a67c52;
+            color: #ffffff;
+            padding: 40px 10px 20px 10px;
+            text-align: center;
+        }
+
+        .banquet-section p {
+            font-size: 17px;
+            max-width: 1000px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .contact-section {
+            /* background-color: #9b734b; */
+            padding: 70px 30px;
+            /* Increase top/bottom and left/right spacing */
+            font-size: 17px;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            font-size: 36px;
+            color: #9b734b;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .contact-details-wrapper .highlight {
+            color: #9b734b;
+            /* Light golden shade */
+            font-weight: 500;
+        }
+
+        .contact-intro {
+            background-color: #9b734b;
+            /* Color you want */
+            color: white;
+            padding: 20px;
+            margin: 0;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .contact-intro {
+                padding-left: calc((100vw - 800px) / 2);
+                padding-right: calc((100vw - 800px) / 2);
+            }
+        }
+
+        .contact-details-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-details-wrapper p {
+            margin-bottom: 10px;
+        }
+
+        .whatsapp-button {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .whatsapp-btn {
+            padding: 10px 20px;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+
+        .map-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            max-width: 1000px;
+            height: 400px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .terms-section {
+            background-color: #a67c52;
+            color: #ffffff;
+            padding: 60px 10px 30px 10px;
+            text-align: center;
+        }
+
+        .terms-section .lined-heading-wrapper {
+            margin-bottom: 40px;
+        }
+
+        .terms-section p {
+            font-size: 17px;
+            max-width: 1000px;
+            margin: 20px auto;
+            text-align: justify;
+        }
+
+        .terms-section ul {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-left: 60px;
+            text-align: left;
+            list-style-type: disc;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .terms-section ul li {
+            margin-bottom: 15px;
+        }
+
+
+        .site-footer {
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 20px;
+        }
+
+        .site-footer a {
+            color: #a67c52;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .site-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-class a {
+            color: #a67c52;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+            font-weight: bold;
+
+        }
+
+        .nav-class a:hover {
+            color: bisque;
+        }
+
+        .nav-class a.active {
+            color: #000;
+            text-decoration: underline;
+        }
+
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #fff;
+            padding: 10px 40px;
+            text-align: center;
+        }
+
+
+        body {
+            padding-top: 120px;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+            font-size: 20px;
+        }
+
+
+        header img {
+            height: 100px;
+            width: auto;
+            max-width: 200px;
+        }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #9b734b;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            z-index: 9999;
+            font-size: 16px;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .cookie-banner button {
+            margin-left: 15px;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #9b734b;
+            border: none;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .carousel {
+            max-width: 1200px;
+            margin: auto;
+            position: relative;
+        }
+
+        .main-image-wrapper {
+            position: relative;
+        }
+
+        .main-image-wrapper img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            padding: 16px;
+            cursor: pointer;
+            font-size: 24px;
+            border-radius: 50%;
+            z-index: 1;
+            transition: background 0.3s;
+        }
+
+        .nav-btn:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .nav-btn.left {
+            left: 1;
+        }
+
+        .nav-btn.right {
+            right: 1px;
+        }
+
+        .thumbnails {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .thumbnails img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 6px;
+            transition: border 0.3s, transform 0.3s;
+        }
+
+        .thumbnails img.active,
+        .thumbnails img:hover {
+            border: 2px solid #ff6600;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        {% load static %}
+
+        <img src="{% static 'images/banner.jpg' %}" alt="Resort Image">
+        <nav class="nav-class">
+            <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+            <a href="{% url 'facilities' %}"
+                class="{% if request.path == '/facilities/' %}active{% endif %}">Facilities</a>
+            <a href="{% url 'room' %}" class="{% if request.path == '/room/' %}active{% endif %}">Rooms</a>
+            <a href="{% url 'restaurant' %}"
+                class="{% if request.path == '/restaurant/' %}active{% endif %}">Restaurant</a>
+            <a href="{% url 'banquet' %}" class="{% if request.path == '/banquet/' %}active{% endif %}">Banquets &
+                Conferences</a>
+            <a href="{% url 'contact' %}" class="{% if request.path == '/contact/' %}active{% endif %}">Contact</a>
+        </nav>
+    </header>
+
+    {% block home %}{% endblock %}
+    {% block facilities %}{% endblock %}
+    {% block room %}{% endblock %}
+    {% block restaurant %}{% endblock %}
+    {% block banquet %}{% endblock %}
+    {% block contact %}{% endblock %}
+    {% block term_condition %}{% endblock %}
+
+    <footer class="site-footer">
+        <p>&copy; Red Leaf Resort And Cafe - Official Site. All Rights Reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> |
+            <a href="{% url 'term_condition' %}">Terms and Conditions</a>
+        </p>
+    </footer>
+
+    <div id="cookie-banner" class="cookie-banner">
+        <p>
+            This website uses cookies. We use cookies to analyze website traffic and optimize your website experience.
+            By accepting our use of cookies, your data will be aggregated with all other user data.
+        </p>
+        <button onclick="acceptCookies()">Accept</button>
+    </div>
+</body>
+
+</html>
+<script>
+    function acceptCookies() {
+        document.getElementById("cookie-banner").style.display = "none";
+        localStorage.setItem("cookiesAccepted", "true");
+    }
+
+    window.onload = function () {
+        if (localStorage.getItem("cookiesAccepted") === "true") {
+            document.getElementById("cookie-banner").style.display = "none";
+        }
+    };
+</script>

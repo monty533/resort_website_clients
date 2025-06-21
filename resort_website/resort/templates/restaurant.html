@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block restaurant %}
+{% load static %}
+
+<section class="">
+    <div class="lined-heading-wrapper">
+        <h3 class="lined-heading-restaurant">DINING</h3>
+    </div>
+</section>
+
+<div class="carousel">
+    <div class="main-image-wrapper">
+        <button class="nav-btn left" onclick="prevImage()">&#10094;</button>
+        <img id="currentImage" src="{% static 'images/banner.jpg' %}" alt="Main">
+        <button class="nav-btn right" onclick="nextImage()">&#10095;</button>
+    </div>
+
+    <div class="thumbnails">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)" class="active">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+    </div>
+</div>
+
+<section class="restaurant-section">
+    <p>
+        The Piccadilly restaurant can be located on the first floor of the hotel and enjoys a reputation
+        for superb fresh food served by attentive staff.
+    </p>
+    <p>
+        It offers an ideal variety of Western cuisine like tandoori grill steaks. The warm and friendly
+        restaurant staff are here to provide you with the best level of service and will ensure that your
+        dining experience will be a memorable one.
+    </p>
+    <p>
+        The Executive Chef along with his culinary team is constantly creating new and innovative
+        cuisines, including more than a dozen vegetarian options and organic farm-fresh dishes
+        from the hotel.
+    </p>
+    <p>
+        On request we can arrange for a farm tour to our organic garden.
+    </p>
+</section>
+
+
+<script>
+    const thumbnails = document.querySelectorAll('.thumbnails img');
+    const mainImage = document.getElementById('currentImage');
+    let currentIndex = 0;
+
+    function changeImage(thumbnail) {
+        mainImage.src = thumbnail.src;
+        thumbnails.forEach(img => img.classList.remove('active'));
+        thumbnail.classList.add('active');
+        currentIndex = Array.from(thumbnails).indexOf(thumbnail);
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % thumbnails.length;
+        changeImage(thumbnails[currentIndex]);
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+        changeImage(thumbnails[currentIndex]);
+    }
+
+    setInterval(nextImage, 4000);  // Auto slide every 4 sec
+</script>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block home %}
+{% load static %}
+<div class="hero">
+    <img src="{% static 'images/banner.jpg' %}" alt="Resort Image">
+    <br>
+    <button class="book-btn">Book Now</button>
+</div>
+
+<section class="brown-section">
+    <div class="lined-heading-wrapper">
+        <h3 class="lined-heading">Resort In the Heart of Kasol</h3>
+    </div>
+    <p>
+        Located just 4 km from Delhi’s international airport, Red Leaf Resort And Cafe is a peaceful, family-run
+        eco-friendly boutique hotel. Surrounded by lush lawns and vibrant gardens, it offers a refreshing escape from
+        the city's hustle. Ideally situated between Connaught Place and Gurgaon, the resort is perfect for both business
+        and leisure travelers.
+    </p>
+    <p>Experience warm hospitality in elegantly designed rooms with modern amenities including free Wi-Fi, 24-hour room
+        service, and more. Enjoy farm-to-table dining at our multi-cuisine restaurant, Picadilly, featuring fresh
+        produce from our own organic farmland. Relax by the pool, indulge in a personalized massage at the spa, or
+        unwind with a cup of exotic tea in our cozy lounge.
+
+    </p>
+    <p>
+        With state-of-the-art business facilities and a tranquil natural setting, Red Leaf Resort And Cafe blends
+        comfort,
+        convenience, and care in every detail. We invite you to be a part of our family and make your stay truly
+        memorable.
+    </p>
+</section>
+
+<section class="subscribe-section">
+    <h4>Stay Connected</h4>
+    <p>Be the first to hear about local events and new amenities.</p>
+    <input type="text" placeholder="Email Address">
+    <button>Subscribe</button>
+</section>
+
+<div class="contact-form">
+    <h4>Contact Us</h4>
+    <input type="text" placeholder="Name">
+    <input type="text" placeholder="Phone">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Message" rows="6"></textarea>
+    <p class="recaptcha-notice">
+        This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> &
+        <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms and Conditions.</a>
+    </p>
+    <button>Send</button>
+</div>
+
+{% endblock %}

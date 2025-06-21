@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block home %}
+{% load static %}
+
+<section class="">
+    <div class="lined-heading-wrapper">
+        <h3 class="lined-heading-restaurant">GALLERY</h3>
+    </div>
+</section>
+
+<div class="carousel">
+    <div class="main-image-wrapper">
+        <button class="nav-btn left" onclick="prevImage()">&#10094;</button>
+        <img id="currentImage" src="{% static 'images/banner.jpg' %}" alt="Main">
+        <button class="nav-btn right" onclick="nextImage()">&#10095;</button>
+    </div>
+
+    <div class="thumbnails">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)" class="active">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+    </div>
+</div>
+
+<section class="facility-intro">
+    <div class="lined-heading-wrapper">
+        <h3 class="lined-heading">FACILITIES</h3>
+    </div>
+    <p>
+        Red Leaf Resort And Cafe is a hotel with a difference. Created to make your stay comfortable, the standards set
+        are
+        as high as your aspirations.
+    </p>
+    <p>
+        Behind the lavishness are a crisp efficiency and a deep understanding of the needs of the global traveller.
+        Personalized services are provided to every guest, in conformity with traditions of India.
+    </p>
+    <p>
+        The 82 well-appointed rooms at the resort reflect an ambience of classic elegance and charm.
+    </p>
+</section>
+<section class="facility-section">
+    <ul>
+        <li><strong>Fully functional Business Center</strong>, Conference Room, Secretarial Service, Fax facilities,
+            Photocopier, Internet Usage, Satellite T.V., Direct Dial Phone and WiFi.</li>
+        <li><strong>Outdoor Swimming Pool</strong> (for residents and members only)</li>
+        <li><strong>Heaven Laundry and Dry Cleaning</strong></li>
+        <li>Complimentary car parking facility</li>
+        <li>24-hours currency exchange</li>
+        <li>Doctor on call</li>
+        <li>Beauty salon on request</li>
+    </ul>
+</section>
+
+
+<script>
+    const thumbnails = document.querySelectorAll('.thumbnails img');
+    const mainImage = document.getElementById('currentImage');
+    let currentIndex = 0;
+
+    function changeImage(thumbnail) {
+        mainImage.src = thumbnail.src;
+        thumbnails.forEach(img => img.classList.remove('active'));
+        thumbnail.classList.add('active');
+        currentIndex = Array.from(thumbnails).indexOf(thumbnail);
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % thumbnails.length;
+        changeImage(thumbnails[currentIndex]);
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+        changeImage(thumbnails[currentIndex]);
+    }
+
+    setInterval(nextImage, 4000);  // Auto slide every 4 sec
+</script>
+
+{% endblock %}

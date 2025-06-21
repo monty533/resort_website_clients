@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% block restaurant %}
+{% load static %}
+
+<style>
+    .image-highlight {
+        background-color: #9b734b;
+        padding: 40px;
+        text-align: center;
+    }
+
+    .carousel-container {
+        position: relative;
+        max-width: 1200px;
+        /* Increased from 900px */
+        width: 95vw;
+        /* Responsive large width */
+        margin: auto;
+    }
+
+    .carousel-slide {
+        position: relative;
+    }
+
+    .slide {
+        display: none;
+        width: 100%;
+        max-height: 550px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .slide.active {
+        display: block;
+    }
+
+    .nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        font-size: 24px;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        z-index: 1;
+        border-radius: 50%;
+    }
+
+    .nav.prev {
+        left: 10px;
+    }
+
+    .nav.next {
+        right: 10px;
+    }
+
+    .thumbnails {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .thumb {
+        width: 70px;
+        height: 50px;
+        object-fit: cover;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .thumb.active {
+        border-color: #fff;
+    }
+</style>
+
+<section class="room-section">
+    <div class="lined-heading-wrapper">
+        <h3 class="lined-heading">OUR ROOMS</h3>
+    </div>
+    <p>
+        The Red Leaf Resort And Cafe has 80 beautifully appointed guestrooms, adorned with boutique furnishings and warm
+        earth tones that give each space a stylish, contemporary feel. This is complemented by the grand red brick
+        architecture with high ceilings and relaxing vintage atmosphere throughout. A calm resort with ample light and
+        ventilation for maximum comfort.
+    </p>
+    <p>
+        The resort also has specially designed rooms for guests with special needs. The property team has developed the
+        infrastructure for physically challenged, including specially equipped guestrooms, paths for the blind, and
+        other public areas and facilities.
+    </p>
+</section>
+
+<section class="image-highlight">
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <button class="nav prev" onclick="changeSlide(-1)">&#10094;</button>
+            <img class="slide active" src="{% static 'images/banner.jpg' %}" alt="Slide 1">
+            <img class="slide" src="{% static 'images/banner1.jpg' %}" alt="Slide 2">
+            <img class="slide" src="{% static 'images/banner.jpg' %}" alt="Slide 3">
+
+            <button class="nav next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="thumbnails">
+            <img src="{% static 'images/banner.jpg' %}" onclick="goToSlide(0)" class="thumb active">
+            <img src="{% static 'images/banner1.jpg' %}" onclick="goToSlide(1)" class="thumb">
+            <img src="{% static 'images/banner.jpg' %}  " onclick="goToSlide(2)" class="thumb">
+        </div>
+    </div>
+</section>
+
+
+<section class="room-section">
+    <div class="room-type">
+        <h4>Club Room:</h4>
+        <p>
+            185sq. ft. room with attached bathroom, Kettle, Bathe, Choice of king or 2 single beds. Tea/Coffee maker,
+            voice-enabled phone, mini bar, individual climate control, 32 inch flat screen Television, Hairdryer.
+            24-hour room service.
+        </p>
+        <button class="book-btn-room">Book Now</button>
+    </div>
+    <div class="room-type">
+        <h4>Luxury Premium Room:</h4>
+        <p>
+            220sq. ft. room with attached bathroom, Garden bath. Choice of king or 2 single beds. Wooden interior and
+            street view outside the window. Individual climate control, high-speed wireless internet access, 40-inch
+            flat screen Television. 24-hour room service.
+        </p>
+        <button class="book-btn-room">Book Now</button>
+    </div>
+</section>
+
+<script>
+    let currentIndex = 0;
+    let slides = document.querySelectorAll(".slide");
+    let thumbs = document.querySelectorAll(".thumb");
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index);
+            thumbs[i].classList.toggle("active", i === index);
+        });
+        currentIndex = index;
+    }
+
+    function changeSlide(direction) {
+        let nextIndex = (currentIndex + direction + slides.length) % slides.length;
+        showSlide(nextIndex);
+    }
+
+    function goToSlide(index) {
+        showSlide(index);
+    }
+
+    // Auto change every 4 seconds
+    setInterval(() => {
+        changeSlide(1);
+    }, 4000);
+
+    // Initial display
+    showSlide(currentIndex);
+</script>
+
+{% endblock %}

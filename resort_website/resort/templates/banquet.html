@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block banquet %}
+{% load static %}
+
+<section class="">
+    <div class="lined-heading-wrapper">
+        <h3 class="lined-heading-restaurant">EVENTS</h3>
+    </div>
+</section>
+
+<div class="carousel">
+    <div class="main-image-wrapper">
+        <button class="nav-btn left" onclick="prevImage()">&#10094;</button>
+        <img id="currentImage" src="{% static 'images/banner.jpg' %}" alt="Main">
+        <button class="nav-btn right" onclick="nextImage()">&#10095;</button>
+    </div>
+
+    <div class="thumbnails">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)" class="active">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner.jpg' %}" onclick="changeImage(this)">
+        <img src="{% static 'images/banner1.jpg' %}" onclick="changeImage(this)">
+    </div>
+</div>
+
+<section class="banquet-section">
+    <p>
+        The Hotel Lawns are ideal for large scale events and offer elegant surroundings. Superb cuisine, dynamic service
+        and attention to detail all see your event through completion.
+    </p>
+    <p>
+        The hotels F&B and conference department offers comprehensive services to coordinate every last detail for
+        perfect business and social functions.
+    </p>
+    <p>
+        Additionally 2 individually designed meeting rooms lend themselves to casual discussions or formal affairs and
+        can accommodate from 10-150 guests.
+    </p>
+    <p>
+        We at Red Leaf Resort And Cafelook forward to welcoming you and your guest to experience our hospitality.
+    </p>
+</section>
+
+
+<script>
+    const thumbnails = document.querySelectorAll('.thumbnails img');
+    const mainImage = document.getElementById('currentImage');
+    let currentIndex = 0;
+
+    function changeImage(thumbnail) {
+        mainImage.src = thumbnail.src;
+        thumbnails.forEach(img => img.classList.remove('active'));
+        thumbnail.classList.add('active');
+        currentIndex = Array.from(thumbnails).indexOf(thumbnail);
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % thumbnails.length;
+        changeImage(thumbnails[currentIndex]);
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+        changeImage(thumbnails[currentIndex]);
+    }
+
+    setInterval(nextImage, 4000);  // Auto slide every 4 sec
+</script>
+{% endblock %}
